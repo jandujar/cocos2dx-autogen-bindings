@@ -977,6 +977,29 @@ JSBool js_cocos2dx_studio_CCDisplayManager_changeDisplayByIndex(JSContext *cx, u
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_studio_CCDisplayManager_changeDisplayByName(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCDisplayManager* cobj = (cocos2d::extension::CCDisplayManager *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+        const char* arg0;
+   		JSBool arg1;
+		std::string arg0_tmp;
+        ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->changeDisplayByName(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+    
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_studio_CCDisplayManager_isVisible(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -1119,6 +1142,7 @@ void js_register_cocos2dx_studio_CCDisplayManager(JSContext *cx, JSObject *globa
 		JS_FN("getAnchorPoint", js_cocos2dx_studio_CCDisplayManager_getAnchorPoint, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDecorativeDisplayList", js_cocos2dx_studio_CCDisplayManager_getDecorativeDisplayList, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("changeDisplayByIndex", js_cocos2dx_studio_CCDisplayManager_changeDisplayByIndex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("changeDisplayByName", js_cocos2dx_studio_CCDisplayManager_changeDisplayByName, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isVisible", js_cocos2dx_studio_CCDisplayManager_isVisible, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getForceChangeDisplay", js_cocos2dx_studio_CCDisplayManager_getForceChangeDisplay, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_studio_CCDisplayManager_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -2027,6 +2051,29 @@ JSBool js_cocos2dx_studio_CCBone_changeDisplayByIndex(JSContext *cx, uint32_t ar
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_studio_CCBone_changeDisplayByName(JSContext *cx, uint32_t argc, jsval *vp)
+{
+    jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBone* cobj = (cocos2d::extension::CCBone *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+        const char* arg0;
+   		JSBool arg1;
+		std::string arg0_tmp;
+        ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->changeDisplayByName(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+    
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_studio_CCBone_nodeToArmatureTransform(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -2208,6 +2255,7 @@ void js_register_cocos2dx_studio_CCBone(JSContext *cx, JSObject *global) {
 		JS_FN("getArmature", js_cocos2dx_studio_CCBone_getArmature, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBlendType", js_cocos2dx_studio_CCBone_setBlendType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("changeDisplayByIndex", js_cocos2dx_studio_CCBone_changeDisplayByIndex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("changeDisplayByName", js_cocos2dx_studio_CCBone_changeDisplayByName, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("nodeToArmatureTransform", js_cocos2dx_studio_CCBone_nodeToArmatureTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateDisplayedColor", js_cocos2dx_studio_CCBone_updateDisplayedColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_studio_CCBone_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

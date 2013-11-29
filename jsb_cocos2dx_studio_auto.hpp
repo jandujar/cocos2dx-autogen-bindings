@@ -67,6 +67,7 @@ JSBool js_cocos2dx_studio_CCDisplayManager_setVisible(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_studio_CCDisplayManager_getAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_getDecorativeDisplayList(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_changeDisplayByIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCDisplayManager_changeDisplayByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_isVisible(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_getForceChangeDisplay(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCDisplayManager_create(JSContext *cx, uint32_t argc, jsval *vp);
@@ -117,6 +118,7 @@ JSBool js_cocos2dx_studio_CCBone_getDisplayManager(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_studio_CCBone_getArmature(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_setBlendType(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_changeDisplayByIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_studio_CCBone_changeDisplayByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_nodeToArmatureTransform(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_updateDisplayedColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_studio_CCBone_create(JSContext *cx, uint32_t argc, jsval *vp);

@@ -210,6 +210,12 @@ getDecorativeDisplayList : function () {},
  * @param {bool}
  */
 changeDisplayByIndex : function () {},
+    
+/**
+ * @method changeDisplayByName
+ * @param {const char*}
+ */
+changeDisplayByName : function () {},
 
 /**
  * @method isVisible
@@ -458,6 +464,12 @@ setBlendType : function () {},
  * @param {bool}
  */
 changeDisplayByIndex : function () {},
+
+/**
+ * @method changeDisplayByName
+ * @param {const char*}
+ */
+changeDisplayByName : function () {},
 
 /**
  * @method nodeToArmatureTransform
